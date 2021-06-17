@@ -53,12 +53,13 @@ public class LmsDAO2 extends DAO implements Lms_subAccess {
 
 	@Override // 과목등록
 	public void insertSubject(LmsDTO2 lms) {
-		String sql = "insert into Lms_sub (subject , name , date) values (?,?,?)";
+		String sql = "insert into Lms_sub (subject , name , id, date) values (?,?,?,?)";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, lms.getSubject());
 			psmt.setString(2, lms.getName());
-			psmt.setString(3, lms.getDate());
+			psmt.setString(3, lms.getId());
+			psmt.setString(4, lms.getDate());
 			psmt.executeUpdate(); // insert, update, delete 할 때 execute사용
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -75,7 +76,7 @@ public class LmsDAO2 extends DAO implements Lms_subAccess {
 			if (r == 0) {
 				System.out.println("과목 삭제 실패");
 			} else {
-				System.out.println("과목 삭제 성공");
+				System.out.println("'"+subject+"'"+" 과목 삭제 성공");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -112,12 +113,13 @@ public class LmsDAO2 extends DAO implements Lms_subAccess {
 
 			psmt.setString(3, lms.getSubject());
 
-			psmt.executeUpdate();
-
+			int r = psmt.executeUpdate();
+			
+			System.out.println(r + "건 변경.");
+			
 		} catch (Exception e) {
 
-			System.out.println(e.toString());
-
+			e.printStackTrace();
 		}
 	}
 

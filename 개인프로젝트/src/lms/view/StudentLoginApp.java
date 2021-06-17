@@ -52,8 +52,7 @@ public class StudentLoginApp { // 학생전용
 			LmsList.findByID(b);
 		} else if (num == 2) {
 			LmsDTO dto = new LmsDTO();
-			System.out.println("학번입력>");
-			dto.setId(ScannerUtil.readStr());
+			dto.setId(b);
 			System.out.println("비밀번호 입력>");
 			dto.setPw(ScannerUtil.readStr());
 			System.out.println("이메일 수정>");

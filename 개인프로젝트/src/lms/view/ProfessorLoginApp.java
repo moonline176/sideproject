@@ -55,6 +55,7 @@ public class ProfessorLoginApp { // 교수 전용 로그인
 			lms.setSubject(ScannerUtil.readStr());
 			System.out.println("이름 입력>");
 			lms.setName(ScannerUtil.readStr());
+			lms.setId(b);
 			lms.setDate(format_time1);
 			LmsList2.insertSubject(lms);
 		} else if (num == 2) {
@@ -86,7 +87,7 @@ public class ProfessorLoginApp { // 교수 전용 로그인
 		int num = ScannerUtil.readInt();
 		if (num == 1) {
 			System.out.println("날짜 입력>");
-			lms.setDate(ScannerUtil.readStr());
+			lms.setDate(format_time1);
 			System.out.println("성적 입력>");
 			lms.setGrade(ScannerUtil.readStr());
 			System.out.println("과목 입력>");
