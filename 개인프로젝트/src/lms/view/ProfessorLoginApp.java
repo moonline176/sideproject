@@ -86,7 +86,6 @@ public class ProfessorLoginApp { // 교수 전용 로그인
 		LmsDTO2 lms = new LmsDTO2();
 		int num = ScannerUtil.readInt();
 		if (num == 1) {
-			System.out.println("날짜 입력>");
 			lms.setDate(format_time1);
 			System.out.println("성적 입력>");
 			lms.setGrade(ScannerUtil.readStr());
